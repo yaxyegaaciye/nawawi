@@ -43,7 +43,7 @@ return $data;
 
 if (isset($_POST['search'])) {
     $info = getData();
-    $sql = "SELECT *FROM registration WHERE ID= '$info[12]' AND ID='$info[13]'";
+    $sql = "SELECT *FROM registration ";
     $search_result =mysqli_query($conn,$sql);
 if (mysqli_num_rows($search_result)){
  while ($rows=mysqli_fetch_array($search_result)) {
@@ -151,6 +151,7 @@ $id=$rows['image'];
   
   
 </select>
+&nbsp;
                 <div class="input-group-btn"> 
                     <button class="btn btn-primary"type="submit" name="search">
                         <span class="glyphicon glyphicon-search"></span></button> 
@@ -176,6 +177,7 @@ $id=$rows['image'];
         <th>classname</th>
         <th>section</th>
         <th>branch</th>
+        <th>nationality</th>
         <th>registrationdate</th>
         <th>image</th>
       </tr>
@@ -185,7 +187,7 @@ $id=$rows['image'];
 // sql to Select a record
 $conn = new mysqli ("localhost","root","","simpledata");
 if (isset($_POST['search'])){
-$sql = "SELECT *from registration WHERE section='$info[13]'AND classname='$info[12]'";
+$sql = "SELECT * FROM registration WHERE classname='$info[12]'AND section='$info[13]' ";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
    while ($rows=$result->fetch_assoc() ) {

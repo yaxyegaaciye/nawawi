@@ -312,10 +312,10 @@ style="width:100px ; height:31px; font-size:13px;font-family:verdana;"class="for
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label>displine :</label>&nbsp;&nbsp;&nbsp;&nbsp;
       <input type="text"  class="form-control" style="width:150px" placeholder"displine"  name="displine">
-        
-
+      
+<br><br>
                                    
-     <button type="submit" class="btn btn-success" name="reg">Register</button> 
+     <button type="submit" class="btn btn-success" name="reg">  <span class="glyphicon glyphicon-save"></span>  Add Mark</button> 
      </form>
                                     
                                        

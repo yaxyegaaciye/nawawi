@@ -186,7 +186,7 @@ else {
 <div class="container">
   <div class="row">
     <div class="col-md-2"> 
- <div class="nav-side-menu" style="margin:-8px 0 0 -45px">
+ <div class="nav-side-menu" style="margin:-8px 0 0 -115px">
     <div class="brand"style="height:63px">nawawi</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
         <div class="menu-list">
@@ -242,22 +242,25 @@ else {
 
  <div class="form-group">
     <label for="text"> Mother name :  </label>
-    <input type="text" class="form-control" id="mothername" name="mothername" style=" height:31px;">
+    <input type="text" class="form-control" id="mothername" name="mothername" style=" height:31px;" 
+    required pattern="[a-zA-Z]+.*\S.*" title="allow only letters" >
   </div>
  
   <div class="form-group">
     <label>Guardian name:  </label>
-    <input type="text" class="form-control" id="guardianname" name="guardianname" style=" height:31px;">
+    <input type="text" class="form-control" id="guardianname" name="guardianname" style=" height:31px;"
+ required pattern="[a-zA-Z]+.*\S.*" title="allow only letters">
   </div>
 <div class="form-group">
     <label for="text">Address :  </label> 
-    <input type="text" class="form-control" id="Address" name="address"style=" height:31px;" >
+    <input type="text" class="form-control" id="Address" name="address"style=" height:31px;"
+     pattern="[A-Za-z]" >
   </div> 
 
   
    <div class="form-group">
     <label for="text">Phone NO:  </label> &nbsp;
-    <input type="text" class="form-control" id="phone" name="phone"style=" height:31px;" >
+    <input type="text" class="form-control" id="phone" name="phone" required=""style=" height:31px;"onkeypress="return isNumber(event)" >
   </div>
  <div class="form-group">
     <label for="text">Section : </label>&nbsp;
@@ -302,7 +305,7 @@ else {
     <div class="col-md-6"> 
   <div class="form-group">
     <label>Student name: </label>
-    <input type="text" class="form-control" id="studentname" name="studentname"  style="height:31px;">
+    <input type="text" class="form-control" id="studentname" name="studentname"  style="height:31px;"  required pattern="[a-zA-Z]+.*\S.*" title="allow only letters">
   </div> 
   <div class="form-group">
     <label>Nationality :  </label> &nbsp;
@@ -379,7 +382,7 @@ else {
 
 <div class="form-group">
     <label for="text">Guardian occupation:  </label> &nbsp;
-    <input type="text" class="form-control" id="occupation" name="guardianoccupation"  style="height:31px;">
+    <input type="text" class="form-control" id="occupation" name="guardianoccupation"  required pattern="[a-zA-Z]+.*\S.*" title="allow only letters" style="height:31px;">
   </div> 
 
   <div class="form-group">
@@ -546,7 +549,7 @@ else {
    <div class="form-group">
     <label for="text">Guardian Tell:  </label> &nbsp;
     <input type="text" class="form-control" id="guardiantell"  style="width:130px ; height:31px;"
-    name="guardiantell" >
+    name="guardiantell" onkeypress="return isNumber(event)" >
   </div> 
 
    <div class="form-group">

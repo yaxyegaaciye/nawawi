@@ -1,22 +1,3 @@
-
-<?php
-    $conn = new mysqli("localhost", "root", "", "simpledata");
-    if(isset($_POST["query"]))
-    {
-        $search = mysqli_real_escape_string($conn, $_POST["query"]);
-        $query = "
-        SELECT * FROM exam";
-    }
-    else
-    {
-        $query = "
-        SELECT * FROM exam ORDER BY id
-        ";
-    }
-    $result = mysqli_query($conn, $query);
-    if(mysqli_num_rows($result) > 0)
-    { ?>
-
 <?php
 include "config.php";
 session_start();
@@ -225,8 +206,23 @@ if(!isset($_SESSION['username'])){
                          </thead> 
                 </tr>
                 <tbody style="font-size:11px;">
-        <?php
-            while($row = mysqli_fetch_array($result)){ ?>
+    <?php
+    $conn = new mysqli("localhost", "root", "", "simpledata");
+   $total ="";
+  $average ="";
+ $sql2="SELECT islamic,arabic,somali,english,math,science,social,geography,history,physics,biology,chemistry,displine FROM exam";
+    $result=$conn->query($sql2);
+    $rows= mysqli_fetch_assoc($result);
+    $total = array_sum($rows);
+    $average = array_sum($rows)/count($rows);
+    
+      ?>
+     <?php
+    $conn = new mysqli("localhost", "root", "", "simpledata");
+    $sql="SELECT * FROM exam";
+    $result=$conn->query($sql);
+    $row= $result->fetch_assoc();
+   while($row = mysqli_fetch_array($result)){?>
                 <tr>
                      <td><?php echo $row['id'] ?></td>
                     <td><?php echo $row["name"] ?></td>
@@ -249,8 +245,8 @@ if(!isset($_SESSION['username'])){
 	                 <td><?php echo $row['biology'] ?></td>
                     <td><?php echo $row["chemistry"] ?></td>
                     <td><?php echo $row["displine"] ?></td>
-                     <td><?php echo $row['total'] ?></td>
-                    <td><?php echo $row["average"] ?></td>
+                     <td><?php echo ($total); ?></td>
+                    <td><?php echo ($average); ?></td>
                     <td><?php echo $row["term_three"] ?></td>
                     <td>
                         <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-<?php echo $row['id']; ?>" id=""><i class="fa fa-pencil fa-sm"></i> Edit</button>
@@ -419,13 +415,7 @@ if(!isset($_SESSION['username'])){
                 </td>
                    
                 </tr>
-                <?php 
-            }
-    }
-else
-{
- echo 'Data Not Found';
-}
+   <?php }
 echo " </tbody></table></div></div></div></div>";
 ?>
 </body></html>

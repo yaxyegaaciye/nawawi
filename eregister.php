@@ -43,17 +43,16 @@ if (isset($_POST['reg'])) {
     VALUES ('$info[0]', '$info[1]', '$info[2]','$info[3]','$info[4]','$info[5]','$info[6]',
     '$info[7]','$info[8]','$info[9]', '$info[10]', '$info[11]','$info[12]','$info[13]','$info[14]','$info[15]',
     '$info[16]','$info[17]','$info[18]','$info[19]','$info[20]')";
-
-    $search_result = mysqli_query($conn,$sql);
+    
+      $search_result = mysqli_query($conn,$sql);
+   
    if ($search_result) {
      header("location:table.php");
 
      }
-     
+     else {header("location:login.php");}
 
-else {
 
-}
 }
 
 

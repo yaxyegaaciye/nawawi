@@ -33,6 +33,7 @@ $data[20] =$_POST['displine'];
 return $data;
 }
   if (isset($_POST['register'])) {
+         $info = getData();
   $sql = "SELECT ID,studentname FROM registration ORDER BY ID ASC";
   $result =$conn->query($sql);
     $id="";
@@ -42,12 +43,7 @@ return $data;
                $name=$row['studentname'];
                $rowcount=mysqli_num_rows($result);  
         
-//  echo "row = ".$row[0]."<br>";
- //echo "rowcount = ".$rowcount."<br>";
-        }
-    $info = getData();
-    //$a=$row[0];
-    //while ($a<=$rowcount) {
+
     $sql= "INSERT INTO exam (id,name,branch,level,classname,section,term,year,islamic,arabic,somali,
     english,math,science,social,geography,history,physics,biology,chemistry,displine)
     VALUES ('$id','$name', '$info[2]','$info[3]','$info[4]','$info[5]','$info[6]',
@@ -56,8 +52,8 @@ return $data;
      //$a++;
     $search_result = mysqli_query($conn,$sql);
    if ($search_result) {
-       header("location:table.php");}
-    //}
+       header("location:exam.php");}
+        }
 }
 
 
